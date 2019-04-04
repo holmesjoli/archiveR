@@ -1,2 +1,1 @@
-# gitToolR
-Git tools for R
+# Git Tool R
