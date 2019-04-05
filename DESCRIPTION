@@ -1,0 +1,13 @@
+Package: gitToolR
+Type: Package
+Title: Git Tools for R
+Version: 0.0.0.999
+Author: Joli Holmes
+Maintainer: Joli Holmes <holmesjoli@gmail.com>
+Description: Add a desc here
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Imports:
+  git2r
+RoxygenNote: 6.1.1
