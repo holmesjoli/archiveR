@@ -30,6 +30,13 @@ check_master <- function(repo) {
   
   if(active_branch != "master"){
     warning("Not on master, please on do autocommits to master")
+  
+    print("Continue?")
+    ui <- readline("Continue? \n1:Yes \n2:No")
+    if(ui == 2){
+      stop("")
+    }
+    
   }
   
   return(active_branch)
