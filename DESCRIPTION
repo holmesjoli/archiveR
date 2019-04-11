@@ -11,3 +11,4 @@ LazyData: true
 Imports:
   git2r
 RoxygenNote: 6.1.1
+Language: en-US

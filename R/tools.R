@@ -1,5 +1,6 @@
 ## Git tools
 
+
 config_repo <- function(user.name, user.email){
   #' Configure repository
   #' 
@@ -29,15 +30,16 @@ check_master <- function(repo) {
   active_branch <- git2r::repository_head(repo)$name
   
   if(active_branch != "master"){
-    warning("Not on master, please on do autocommits to master")
-  
-    ui <- readline("Continue? \n1:Yes \n2:No\n")
+
+    ui <- readline("Master branch is not active. Continue? \n1:Yes \n2:No\n")
     while(ui %in% c(1,2) == FALSE){
       ui <- readline("Please select 1 or 2")
     }
       
     if(ui == 2){
       stop("Autocommit stopped")
+    }else{
+      print("Continuing autocommit")
     }
     
   }
