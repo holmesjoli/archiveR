@@ -1,1 +1,14 @@
-
+Package: dataArchiveR
+Type: Package
+Title: Archiving Tools for R
+Version: 0.0.0.999
+Author Joli Holmes
+Maintainer: Joli Holmes <holmesjoli@gmail.com>
+Description: A package for data archiving and versioning with code 
+License: 
+Encoding: UTF-8
+LazyData: true
+Imports:
+  git2r
+RoxygenNoe: 6.1.1
+Language: en-US
