@@ -1,22 +1,29 @@
 ## Versioning functions
 
-make_dirs <- function(pth){
-  #'Makes a directory structure 
-  #'
-  #'Makes a directory structure that's compatible with the versioning system
-  #'
-  #'@param pth the root project directory path to create the versioning system structure in
-  #'@examples
-  #' make_dirs("C:/Projects/ProjectXYZ")
+archive_dir <- function(output_dir) {
+  #' Creates the file path to the Archive directory
+  #' @param output_dir the path to create the versioning folder structure in
+  #' @examples
+  #' ad <- archive_dir("C:/Projects/ProjectXYZ/Data/Processed")
 
-  dir.create(file.path(pth, "Data"))
-  dir.create(file.path(pth, "Data", "Processed"))
-  dir.create(file.path(pth, "Data", "Processed", "Current"))
-  dir.create(file.path(pth, "Data", "Processed", "Archive"))
-  dir.create(file.path(pth, "Data", "Raw"))
-  
-  dir.create(file.path(pth, "Deliverables"))
-  dir.create(file.path(pth, "Deliverables", "Current"))
-  dir.create(file.path(pth, "Deliverables", "Archive"))
-  
+  return(file.path(output_dir, "Archive"))
+}
+
+current_dir <- function(output_dir) {
+  #' Creates the file path to the Current directory
+  #' @param output_dir the path to create the versioning folder structure in
+  #' @examples
+  #' cd <- current_dir("C:/Projects/ProjectXYZ/Data/Processed")
+
+  return(file.path(output_dir, "Current"))
+}
+
+archive_dirs <- function(output_dir) {
+  #' Creates the archive directory file structure
+  #' @param output_dir the path to create the versioning folder structure in
+  #' @examples
+  #' ad <- archive_dirs("C:/Projects/ProjectXYZ/Data/Processed")
+
+  return(c(archive_dir(output_dir), current_dir(output_dir)))
+
 }
