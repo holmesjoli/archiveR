@@ -10,5 +10,5 @@ Encoding: UTF-8
 LazyData: true
 Imports:
   git2r
-RoxygenNoe: 6.1.1
+RoxygenNote: 6.1.1
 Language: en-US
