@@ -71,7 +71,7 @@ archive_files <- function(commit, output_dir, archive_fls) {
     #' @examples
     #' commit <- 'master_98jgh8'
     #' output_dir <- 'C:/Projects/ProjectXYZ/Data/Processed'
-    #' archive_files <- c('data.csv', 'data_log.log')
+    #' archive_fls <- c('data.csv', 'data_log.log')
     #' archive_files(commit, output_dir, archive_fls)
     
     archive_dir <- create_archive_dir(output_dir)
