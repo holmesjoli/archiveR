@@ -5,7 +5,7 @@ Version: 0.0.0.999
 Author: Joli Holmes
 Maintainer: Joli Holmes <holmesjoli@gmail.com>
 Description: A package for data archiving and versioning with code 
-License: 
+License: MIT
 Encoding: UTF-8
 LazyData: true
 Imports:
