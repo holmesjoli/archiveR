@@ -9,6 +9,8 @@ License:
 Encoding: UTF-8
 LazyData: true
 Imports:
-  git2r
+  git2r (>= 0.25.2),
+  utilsR (>= 0.0.1),
+  zip (>= 2.0.1)
 RoxygenNote: 6.1.1
 Language: en-US
