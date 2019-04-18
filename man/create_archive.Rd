@@ -20,5 +20,5 @@ Copies files from the Current folder, adds them to the archive, and zips files u
 commit <- 'master_98jgh8'
 output_dir <- '.'
 archive_files <- c('data.csv', 'data_log.log')
-create_archive(commit, output_dir, archive_fls)
+create_archive(commit, output_dir, fls)
 }

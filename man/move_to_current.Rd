@@ -4,10 +4,10 @@
 \alias{move_to_current}
 \title{Moves the files to the Current folder}
 \usage{
-move_to_current(archive_fls, current_dir)
+move_to_current(fls, current_dir)
 }
 \arguments{
-\item{archive_fls}{a list of the files to archive}
+\item{fls}{a list of the files to archive}
 
 \item{current_dir}{the current directory}
 }
@@ -17,7 +17,7 @@ Moves the files to the Current folder
 \examples{
 output_dir <- '.'
 current_dir <- create_current_dir(output_dir)
-archive_fls <- c('data.csv', 'data_log.log')
-utilsR::create_files(archive_fls)
-move_to_current(archive_fls, current_dir)
+fls <- c('data.csv', 'data_log.log')
+utilsR::create_files(fls)
+move_to_current(fls, current_dir)
 }
