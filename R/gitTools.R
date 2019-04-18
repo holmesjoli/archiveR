@@ -70,14 +70,15 @@ auto_commit <- function(repo, user.name, user.password, fl, message, add_branch,
     commit_result <- git2r::commit(repo = repo, message)
     git2r::push(repo, credentials = git2r::cred_user_pass(username = user.name, password = user.password))
     
-    hash <- substring(commit_result$sha, 1, 6)
+    commit <- substring(commit_result$sha, 1, 6)
     
     if (add_message) {
-        commit <- paste(hash, message, sep = "_")
+        commit <- paste(commit, message, sep = "_")
     }
     if (add_branch) {
-        commit <- paste(branch, hash, sep = "_")
+        commit <- paste(branch, commit, sep = "_")
     }
+  
     
     return(commit)
 }
