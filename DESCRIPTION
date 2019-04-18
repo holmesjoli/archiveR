@@ -16,3 +16,7 @@ Imports:
   zip (>= 2.0.1)
 RoxygenNote: 6.1.1
 Language: en-US
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
