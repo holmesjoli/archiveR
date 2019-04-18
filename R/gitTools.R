@@ -11,7 +11,7 @@ setUp <- function(user.name, user.email) {
     #' @examples 
     #' repo <- config.repo('Joli Holmes', 'holmesjoligmail.com')
     
-    repo <- repository(".")
+    repo <- git2r::repository(".")
     git2r::config(repo, global = F, user.name, user.email)
     
     return(repo)

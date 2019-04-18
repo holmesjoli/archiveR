@@ -1,0 +1,106 @@
+---
+title: "dataArchiveR"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{dataArchiveR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(dataArchiveR)
+```
+
+The dataArchiveR package is intended to help teams archive their data and output and connect it to the code that was used to create the output. The code is connected through the output using the hash from the commit. The package builds on functionalities from the [git2r](https://cran.r-project.org/web/packages/git2r/git2r.pdf) package. 
+
+First, we create a file structure with `Current` and `Archive` folders, if those folders don't currently exist. Then we add specified output files to the `Current` folder. Then the files from the `Current` folder are zipped and the zipped file is named after the hash commit used to generate the output. 
+
+I recommend using this Archiving structure whenever you're producing output, but absolutely if you're producing output for a client/partner. 
+
+Note that data/output in the `Current` folder matches the most recently added zip file in the `Archive` folder. 
+
+### Example File Structure
+
+```
+Data/
+    Processed/
+        Current/
+            data.csv
+            summary_data.csv
+        Archive/
+            master_90r68d.zip
+Deliverables/
+    Current/
+        fig1.png
+        fig2.png
+    Archive/
+        master_90r68d.zip
+```
+
+main.R
+```{r, eval = FALSE, echo = TRUE}
+library(utilsR)
+library(dataArchiveR)
+
+config <- utilsR::read_yaml("./config.yaml")
+
+fl <- "."
+add_branch <- TRUE
+add_message <- FALSE
+
+
+main <- function() {
+  #' Initiates the main function
+  
+  # Configure the repository
+  repo <- setUp(user.name, user.email)
+  
+  #Configure commit message
+  commit <- auto_commit(repo, user.name, user.password, fl, message, add_branch, add_message)
+  
+}
+
+class main(object):
+
+    def __init__(self, opts):
+        """
+        Initiates the main function, which does data management and then calls 
+        to autocommit and archive the data
+        """
+
+        self.df = pd.DataFrame({"col1": [1,2,3,4],
+                                "col2": ["a", "b", "c", "d"]})
+
+        self.output_dir = "./dataArchivePy/tests/test_archive"
+        self.archive_fls = ["./dataArchivePy/tests/test_archive/data.csv"]
+
+        self.dm()
+
+        ac = auto_commit(opts)
+        archive_files(ac.commit, self.output_dir, self.archive_fls).archive()
+
+    def dm(self):
+        """
+        Performs data management steps
+        """
+
+        self.df_copy = self.df.copy()
+        self.df_copy["new_col"] = np.where(self.df_copy["col1"] > 1, 1, 0)
+        self.df_copy.to_csv(os.path.join(self.archive_fls[0]))
+
+if __name__ == "__main__":
+
+    opts = parseArguments()
+    main(opts)
+```
+
+```CLI
+Rscript main.R 
+```
