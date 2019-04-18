@@ -4,7 +4,7 @@ create_archive_dir <- function(output_dir) {
     #' Creates the file path to the Archive directory
     #' @param output_dir the path to create the versioning folder structure in
     #' @examples
-    #' output_dir <- "."
+    #' output_dir <- '.'
     #' ad <- archive_dir(output_dir)
     
     return(file.path(output_dir, "Archive"))
@@ -14,7 +14,7 @@ create_current_dir <- function(output_dir) {
     #' Creates the file path to the Current directory
     #' @param output_dir the path to create the versioning folder structure in
     #' @examples
-    #' output_dir <- "."
+    #' output_dir <- '.'
     #' cd <- current_dir(output_dir)
     
     return(file.path(output_dir, "Current"))
