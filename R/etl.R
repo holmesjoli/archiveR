@@ -32,6 +32,15 @@ up <- function(opts){
   }
 }
 
+eval <- function(add){
+  
+  if(is.null(add)) {
+    return(FALSE)
+  }else{
+    return(TRUE)
+  }
+  
+}
 
 archive_etl <- function(output_dir, fls) {
   #' Initiates the ETL for archiving
@@ -44,8 +53,8 @@ archive_etl <- function(output_dir, fls) {
   if(!is.null(opts[["commit_message"]])){
 
     message <- opts[["commit_message"]]
-    add_branch <- opts[["add_branch"]]
-    add_message <- opts[["add_message"]]
+    add_branch <- eval(opts[["add_branch"]])
+    add_message <- eval(opts[["add_message"]])
 
     user.name <- un(opts)
     user.email <- ue(opts)
