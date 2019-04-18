@@ -8,6 +8,8 @@ parseArguments <- function() {
         optparse::make_option(c("-c", "--commit_message"), action = "store", help = "The commit message [default= %default]"))
     
     opt_parser <- optparse::OptionParser(option_list = option_list)
-    return(opt_parser)
+    opt <- optparse::parse_args(opt_parser)
+    
+    return(opt)
     
 }
