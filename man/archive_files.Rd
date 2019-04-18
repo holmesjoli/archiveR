@@ -18,7 +18,7 @@ Writes archive fls out to the Current folder and archives the same files with a 
 }
 \examples{
 commit <- 'master_98jgh8'
-output_dir <- 'C:/Projects/ProjectXYZ/Data/Processed'
+output_dir <- '.'
 archive_fls <- c('data.csv', 'data_log.log')
 archive_files(commit, output_dir, archive_fls)
 }

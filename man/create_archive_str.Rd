@@ -13,6 +13,6 @@ create_archive_str(output_dir)
 Creates the archive structure
 }
 \examples{
-output_dir <- c('./Data/Processed')
+output_dir <- c('.')
 create_archive_str(output_dir)
 }

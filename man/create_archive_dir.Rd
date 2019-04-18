@@ -13,5 +13,6 @@ create_archive_dir(output_dir)
 Creates the file path to the Archive directory
 }
 \examples{
-ad <- archive_dir('C:/Projects/ProjectXYZ/Data/Processed')
+output_dir <- '.'
+ad <- archive_dir(output_dir)
 }

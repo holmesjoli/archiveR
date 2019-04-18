@@ -4,7 +4,8 @@
 \alias{auto_commit}
 \title{Automattically commits}
 \usage{
-auto_commit(repo, user.name, user.password, fl, message)
+auto_commit(repo, user.name, user.password, fl, message, add_branch,
+  add_message)
 }
 \arguments{
 \item{repo}{the repository}
@@ -16,6 +17,10 @@ auto_commit(repo, user.name, user.password, fl, message)
 \item{fl}{the file to commit}
 
 \item{message}{the commit message}
+
+\item{add_branch}{takes the values TRUE or FALSE; if TRUE adds branch to the beginning of the the commit tag}
+
+\item{add_message}{takes the values TRUE or FALSE; if TRUE adds message to the end of the commit tag}
 }
 \value{
 filename to be used to version output files and datasets

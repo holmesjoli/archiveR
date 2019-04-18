@@ -18,7 +18,7 @@ Copies files from the Current folder, adds them to the archive, and zips files u
 }
 \examples{
 commit <- 'master_98jgh8'
-output_dir <- 'C:/Projects/ProjectXYZ/Data/Processed'
+output_dir <- '.'
 archive_files <- c('data.csv', 'data_log.log')
 create_archive(commit, output_dir, archive_fls)
 }

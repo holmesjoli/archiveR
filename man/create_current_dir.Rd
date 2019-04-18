@@ -13,5 +13,6 @@ create_current_dir(output_dir)
 Creates the file path to the Current directory
 }
 \examples{
-cd <- current_dir('C:/Projects/ProjectXYZ/Data/Processed')
+output_dir <- '.'
+cd <- current_dir(output_dir)
 }

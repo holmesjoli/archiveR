@@ -15,8 +15,9 @@ move_to_current(archive_fls, current_dir)
 Moves the files to the Current folder
 }
 \examples{
-output_dir <- 'C:/Projects/ProjectXYZ/Data/Processed'
+output_dir <- '.'
 current_dir <- create_current_dir(output_dir)
 archive_fls <- c('data.csv', 'data_log.log')
+utilsR::create_files(archive_fls)
 move_to_current(archive_fls, current_dir)
 }
