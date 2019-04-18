@@ -40,9 +40,10 @@ move_to_current <- function(archive_fls, current_dir) {
     #' move_to_current(archive_fls, current_dir)
     
     utilsR::remove_files(dir(current_dir, full.names = T))
-    sapply(1:length(archive_fls), FUN = function(x) {
-        file.rename(archive_fls[x], file.path(current_dir, archive_fls[x]))
-    })
+    
+    assertthat::assert_that(all(sapply(1:length(archive_fls), FUN = function(x) {
+        file.rename(archive_fls[x], file.path(current_dir, basename(archive_fls[x])))
+    })))
 }
 
 create_archive <- function(commit, current_dir, archive_dir) {
