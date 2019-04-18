@@ -1,7 +1,7 @@
 Package: dataArchiveR
 Type: Package
 Title: Archiving Tools for R
-Version: 0.0.0.999
+Version: 0.0.1
 Author: Joli Holmes
 Maintainer: Joli Holmes <holmesjoli@gmail.com>
 Description: A package for data archiving and versioning with code 
@@ -9,6 +9,7 @@ License: MIT
 Encoding: UTF-8
 LazyData: true
 Imports:
+  assertthat(>= 0.2.1),
   git2r (>= 0.25.2),
   optparse (>= 1.6.2),
   utilsR (>= 0.0.1),
