@@ -68,7 +68,7 @@ auto_commit <- function(repo, user.name, user.password, fl, message, add_branch,
     
     git2r::add(repo = repo, path = fl)
     commit_result <- git2r::commit(repo = repo, message)
-    git2r::push(repo, credentials = cred_user_pass(username = user.name, password = user.password))
+    git2r::push(repo, credentials = git2r::cred_user_pass(username = user.name, password = user.password))
     
     hash <- substring(commit_result$sha, 1, 6)
     
