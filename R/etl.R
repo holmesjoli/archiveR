@@ -33,7 +33,7 @@ up <- function(opts){
 }
 
 
-archive_elt <- function(output_dir, fls) {
+archive_etl <- function(output_dir, fls) {
   #' Initiates the ETL for archiving
   #' @param output_dir the output directory
   #' @param fls: the files to move to Current folder
