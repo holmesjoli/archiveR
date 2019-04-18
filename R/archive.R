@@ -4,7 +4,8 @@ create_archive_dir <- function(output_dir) {
     #' Creates the file path to the Archive directory
     #' @param output_dir the path to create the versioning folder structure in
     #' @examples
-    #' ad <- archive_dir('C:/Projects/ProjectXYZ/Data/Processed')
+    #' output_dir <- "."
+    #' ad <- archive_dir(output_dir)
     
     return(file.path(output_dir, "Archive"))
 }
@@ -13,7 +14,8 @@ create_current_dir <- function(output_dir) {
     #' Creates the file path to the Current directory
     #' @param output_dir the path to create the versioning folder structure in
     #' @examples
-    #' cd <- current_dir('C:/Projects/ProjectXYZ/Data/Processed')
+    #' output_dir <- "."
+    #' cd <- current_dir(output_dir)
     
     return(file.path(output_dir, "Current"))
 }
@@ -22,7 +24,7 @@ create_archive_str <- function(output_dir) {
     #'Creates the archive structure
     #'@param output_dir the output directory where the archive structure will be created
     #'@examples
-    #'output_dir <- c('./Data/Processed')
+    #'output_dir <- c('.')
     #'create_archive_str(output_dir)
     
     utilsR::create_dirs(c(create_archive_dir(output_dir), create_current_dir(output_dir)))
@@ -34,9 +36,10 @@ move_to_current <- function(archive_fls, current_dir) {
     #' @param archive_fls a list of the files to archive
     #' @param current_dir the current directory
     #' @examples 
-    #' output_dir <- 'C:/Projects/ProjectXYZ/Data/Processed'
+    #' output_dir <- '.'
     #' current_dir <- create_current_dir(output_dir)
     #' archive_fls <- c('data.csv', 'data_log.log')
+    #' utilsR::create_files(archive_fls)
     #' move_to_current(archive_fls, current_dir)
     
     utilsR::remove_files(dir(current_dir, full.names = T))
@@ -53,13 +56,13 @@ create_archive <- function(commit, current_dir, archive_dir) {
     #' @param archive_dir the archive directory
     #' @examples 
     #' commit <- 'master_98jgh8'
-    #' output_dir <- 'C:/Projects/ProjectXYZ/Data/Processed'
+    #' output_dir <- '.'
     #' archive_files <- c('data.csv', 'data_log.log')
     #' create_archive(commit, output_dir, archive_fls)
     
     zipped_fl <- paste0(commit, ".zip")
     zip::zipr(zipped_fl, files = dir(current_dir, full.names = T))
-    file.rename(zipped_fl, file.path(archive_dir, zipped_fl))
+    assertthat::assert_that(file.rename(zipped_fl, file.path(archive_dir, zipped_fl)))
     
 }
 
@@ -68,10 +71,9 @@ archive_files <- function(commit, output_dir, archive_fls) {
     #' @param commit the commit id
     #' @param output_dir the path to create the file archive
     #' @param archive_fls a list of the files to archive
-    #' @return 
     #' @examples
     #' commit <- 'master_98jgh8'
-    #' output_dir <- 'C:/Projects/ProjectXYZ/Data/Processed'
+    #' output_dir <- '.'
     #' archive_fls <- c('data.csv', 'data_log.log')
     #' archive_files(commit, output_dir, archive_fls)
     
