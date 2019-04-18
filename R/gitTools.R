@@ -48,7 +48,7 @@ check_master <- function(repo) {
     
 }
 
-auto_commit <- function(repo, user.name, user.password, fl, message) {
+auto_commit <- function(repo, user.name, user.password, fl, message, add_branch, add_message) {
     #' Automattically commits
     #' 
     #' Automattically commits code
@@ -57,6 +57,8 @@ auto_commit <- function(repo, user.name, user.password, fl, message) {
     #' @param user.password user password
     #' @param fl the file to commit
     #' @param message the commit message
+    #' @param add_branch takes the values TRUE or FALSE; if TRUE adds branch to the beginning of the the commit tag
+    #' @param add_message takes the values TRUE or FALSE; if TRUE adds message to the end of the commit tag
     #' @return filename to be used to version output files and datasets
     #' @examples 
     #' repo <- config.repo('Joli Holmes', 'holmesjoligmail.com')
@@ -69,9 +71,15 @@ auto_commit <- function(repo, user.name, user.password, fl, message) {
     git2r::push(repo, credentials = cred_user_pass(username = user.name, password = user.password))
     
     hash <- substring(commit_result$sha, 1, 6)
-    fl_name <- paste(active_branch, hash, message, sep = "_")
     
-    return(fl_name)
+    if (add_message) {
+        commit <- paste(hash, message, sep = "_")
+    }
+    if (add_branch) {
+        commit <- paste(branch, hash, sep = "_")
+    }
+    
+    return(commit)
 }
 
 
