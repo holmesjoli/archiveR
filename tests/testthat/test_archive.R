@@ -1,11 +1,13 @@
+library(testthat)
+library(assertthat)
 library(utilsR)
 library(dataArchiveR)
 
 commit <- "master_95804f"
 output_dir <- "./tests/testthat"
-archive_fls <- file.path(output_dir, c("test1.txt", "test2.txt"))
+fls <- file.path(output_dir, c("test1.txt", "test2.txt"))
 
-test_that("create archive structure creates the appropriate folders", {
+testthat::test_that("create archive structure creates the appropriate folders", {
 
   dataArchiveR::create_archive_str(output_dir)
   testthat::expect_true(create_archive_dir(output_dir) %in% dir(output_dir, full.names = TRUE))  
@@ -14,21 +16,21 @@ test_that("create archive structure creates the appropriate folders", {
 })
 
 
-test_that("move to current moves the files to current", {
+testthat::test_that("move to current moves the files to current", {
 
-  create_files(archive_fls)
-  testthat::expect_true(all(basename(archive_fls) %in% list.files(output_dir)))
-  cd <- create_current_dir(output_dir)
-  move_to_current(archive_fls, cd)
-  testthat::expect_true(all(basename(archive_fls) %in% list.files(cd)))
+  utilsR::create_files(fls)
+  testthat::expect_true(all(basename(fls) %in% list.files(output_dir)))
+  cd <- dataArchiveR::create_current_dir(output_dir)
+  dataArchiveR::move_to_current(fls, cd)
+  testthat::expect_true(all(basename(fls) %in% list.files(cd)))
 
 })
 
-test_that("archive zip files creates a zipped directory", {
+testthat::test_that("archive zip files creates a zipped directory", {
 
-  archive_dir <- create_archive_dir(output_dir)
-  current_dir <- create_current_dir(output_dir)
-  create_archive(commit, current_dir, archive_dir)
+  archive_dir <- dataArchiveR::create_archive_dir(output_dir)
+  current_dir <- dataArchiveR::create_current_dir(output_dir)
+  dataArchiveR::create_archive(commit, current_dir, archive_dir)
 
   testthat::expect_true(paste0(commit, ".zip") %in% list.files(archive_dir))
   utilsR::remove_dirs(c(create_archive_dir(output_dir), create_current_dir(output_dir)))
