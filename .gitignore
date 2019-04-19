@@ -5,6 +5,5 @@ inst/doc
 
 .Rhistory
 
-Archive/
-Current/
-tests/testthat/data.csv
+tests/testthat/Deliverables/
+tests/testthat/Data
