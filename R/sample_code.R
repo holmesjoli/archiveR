@@ -61,3 +61,11 @@ df_sum <- dm_sum(df, data_fls)
 plots(df, plot_fls)
 archive_etl(file.path(output_dir, "Data"), data_fls)
 archive_etl(file.path(output_dir, "Deliverables"), plot_fls)
+
+
+## Extract data
+
+commit <- "bd429f"
+fl <- data_fls[1]
+
+df <- dataArchiveR::extract_csv(output_dir, commit, fl)
