@@ -4,7 +4,7 @@
 \alias{extract_csv}
 \title{Extracts a csv (comma delimited) file from the archive}
 \usage{
-extract_csv()
+extract_csv(output_dir, commit, fl)
 }
 \arguments{
 \item{output_dir}{the directory where the archive structure is}
