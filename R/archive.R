@@ -1,5 +1,7 @@
 ## Versioning functions
 
+config <- utilsR::read_yaml("./config.yaml")
+
 create_archive_dir <- function(output_dir) {
     #' Creates the file path to the Archive directory
     #' @param output_dir the path to create the versioning folder structure in
@@ -7,7 +9,7 @@ create_archive_dir <- function(output_dir) {
     #' output_dir <- '.'
     #' ad <- archive_dir(output_dir)
     
-    return(file.path(output_dir, "Archive"))
+    return(file.path(output_dir, config$archive_dirs$Archive))
 }
 
 create_current_dir <- function(output_dir) {
@@ -17,7 +19,7 @@ create_current_dir <- function(output_dir) {
     #' output_dir <- '.'
     #' cd <- current_dir(output_dir)
     
-    return(file.path(output_dir, "Current"))
+    return(file.path(output_dir, config$archive_dirs$Current))
 }
 
 create_archive_str <- function(output_dir) {
