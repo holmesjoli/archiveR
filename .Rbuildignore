@@ -4,3 +4,5 @@
 ^\.Rproj\.user$
 ^R/sample_code.R
 R/sample_code.R
+^doc$
+^Meta$
