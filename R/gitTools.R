@@ -1,6 +1,5 @@
 ## Git tools
 
-
 setUp <- function(user.name, user.email) {
     #' Configure repository
     #' 
@@ -78,12 +77,7 @@ auto_commit <- function(repo, user.name, user.password, fl, message, add_branch,
     if (add_branch) {
         commit <- paste(branch, commit, sep = "_")
     }
-  
+    
     
     return(commit)
 }
-
-
-
-
-

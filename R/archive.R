@@ -89,18 +89,18 @@ archive_output <- function(commit, output_dir, fls) {
 }
 
 write_output <- function(output_dir, fls) {
-  #' Writes archive fls out to the Current folder 
-  #' @param output_dir the path to create the file archive
-  #' @param fls a list of the files to archive
-  #' @examples
-  #' output_dir <- '.'
-  #' fls <- c('data.csv', 'data_log.log')
-  #' write_output(output_dir, fls)
-  
-  archive_dir <- create_archive_dir(output_dir)
-  current_dir <- create_current_dir(output_dir)
-  
-  create_archive_str(output_dir)
-  move_to_current(fls, current_dir)
-  
+    #' Writes archive fls out to the Current folder 
+    #' @param output_dir the path to create the file archive
+    #' @param fls a list of the files to archive
+    #' @examples
+    #' output_dir <- '.'
+    #' fls <- c('data.csv', 'data_log.log')
+    #' write_output(output_dir, fls)
+    
+    archive_dir <- create_archive_dir(output_dir)
+    current_dir <- create_current_dir(output_dir)
+    
+    create_archive_str(output_dir)
+    move_to_current(fls, current_dir)
+    
 }
