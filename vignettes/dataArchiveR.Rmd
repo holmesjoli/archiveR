@@ -34,7 +34,7 @@ Note that data/output in the `Current` folder matches the most recently added zi
 
 This may seem like overkill when it comes to data and output archiving. A lot of teams, simply add a timestamp to their output. However, this system of archiving data and output solves a lot of pesky problems. 
 
-### Links Code to Data and Output
+### Links code to data and output
 
 The first problem it solves is that the both the data and the output can now always be traced back to the exact code. So if there are ever any questions about how a dataset was created or which data were used to create output, it's very easy to know.
 
@@ -144,19 +144,27 @@ archive_etl(file.path(output_dir, "Deliverables"), plot_fls)
 
 ### Workflow
 
-Develop codebase normally. Add and commit code to bitbucket/TFS and utlize pull requests. When it comes time to deliver content to a client/partner then use the dataArchiveR library. At this point the code should be code reviewed and tested and be ready to merge into master.
+Develop codebase normally. Add and commit code to bitbucket/TFS and utilize pull requests. When it comes time to deliver content to a client/partner then use the dataArchiveR library. At this point the code should be code reviewed and tested and be ready to merge into master.
 
 1. Navigate the repository's root directory, e.g. `cd dataArchiveR`
 2. To write out data to the Current folder type `Rscript R/sample_code.R`
 3. To write out data to the Current folder and Archive the data type `Rscript R/sample_code.R -c "commit message" -n "holmesjoli" -p "gitHubPassword" -e "holmesjoli@gmail.com"`
 
-* Commiting the code requires the arguments -n, -p, and -e to be added as well
+* Committing the code requires the arguments -n, -p, and -e to be added as well
 * Adding the `--commit` (`-c`) command triggers the script to add the data/output to the Archive folder
 * Adding the `--add_branch` (`-b`) command is an optional argument. Including this command will add the branch name to the beginning of the archive zip filename. 
 * Adding the `--add_message` (`-m`) command is an optional argument. Including this command will add the message to the end of the archive zip filename. 
 
 ### Extract Data
 
+To extract data from an archive use the following sample code. Right now the dataArchiveR supports extract of two file types: tab-delimited files and comma-delimited files. The extract a comma delimited file use the `extract_csv` function. To extract a tab-delimited file use the `extract_tsv` function. 
+
 ```{r, eval = FALSE, echo = TRUE}
+
+output_dir <- "./tests/testthat/Data"
+commit <- "bd429f"
+fl <- "data.csv"
+
+df <- dataArchiveR::extract_csv(output_dir, commit, fl)
 ```
 
