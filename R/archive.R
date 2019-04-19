@@ -104,4 +104,3 @@ write_output <- function(output_dir, fls) {
   move_to_current(fls, current_dir)
   
 }
-
