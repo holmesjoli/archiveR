@@ -45,10 +45,11 @@ move_to_current <- function(fls, current_dir) {
     #' move_to_current(fls, current_dir)
     
     utilsR::remove_files(dir(current_dir, full.names = T))
+    from <- fls
+    to <- file.path(current_dir, basename(fls))
     
-    assertthat::assert_that(all(sapply(1:length(fls), FUN = function(x) {
-        file.rename(fls[x], file.path(current_dir, basename(fls[x])))
-    })))
+    assertthat::assert_that(all(file.copy(from, to)))
+    utilsR::remove_files(fls)
 }
 
 create_archive <- function(commit, current_dir, archive_dir) {

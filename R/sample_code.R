@@ -6,7 +6,7 @@ output_dir <- "./tests/testthat"
 
 utilsR::create_dirs(file.path(output_dir, c("Data", "Deliverables")))
 data_fls <- file.path(output_dir, "Data", c("data.csv", "data_summary.csv"))
-plot_fls <- file.path(output_dir, "Deliverables", c("hist_df.png"))
+plot_fls <- file.path(output_dir, "Deliverables", c("hist_df.png", "hist_df.jpg", "hist_df.tiff"))
 
 ## Functions
 
@@ -42,7 +42,15 @@ plots <- function(df, plot_fls) {
   #' @param df the dataframe
   #' @param data_fls the names of the data files to write out
 
-  png(plot_fls[1])
+  png(filename = plot_fls[1])
+  hist(df$new_col)
+  dev.off()
+
+  jpeg(filename = plot_fls[2])
+  hist(df$new_col)
+  dev.off()
+
+  tiff(filename = plot_fls[3])
   hist(df$new_col)
   dev.off()
 
