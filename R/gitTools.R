@@ -64,7 +64,7 @@ auto_commit <- function(repo, user.name, user.password, fl, message, add_branch,
     #' repo <- config.repo('Joli Holmes', 'holmesjoligmail.com')
     #' auto_commit(repo, 'holmesjoli', 'password', '.', 'July 2018 Monthly')
     
-    active_branch <- check_master(repo)
+    branch <- check_master(repo)
     
     git2r::add(repo = repo, path = fl)
     commit_result <- git2r::commit(repo = repo, message)
