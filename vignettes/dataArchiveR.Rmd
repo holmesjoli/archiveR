@@ -18,6 +18,10 @@ knitr::opts_chunk$set(
 library(dataArchiveR)
 ```
 
+# Introduction
+
+One issue that I've often faced in analytics is how to connect output (data, visualizations, and reports) with the code used to generate that output. The team will deliver output to the client/partner and then continue to develop the code base. If the client/partner has a specific question then the team has to back-track to figure out which code was used to create that particular output. A lot of teams archive their output use timestamps, e.g. data_20171019_124590. While this can be a good method for data archiving for some teams, this method doesn't easily allow an analyst to be able to backtrack and see which code created that specific output. This can also create issues if data is created and then used as an input farther downstream because it means that the filename is changing whenever the data are re-processed.
+
 The dataArchiveR package is intended to help teams archive their data and output and connect it to the code that was used to create the output. The code is connected through the output using the hash from the commit. The package builds on functionalities from the [git2r](https://cran.r-project.org/web/packages/git2r/git2r.pdf) package. 
 
 First, we create a file structure with `Current` and `Archive` folders, if those folders don't currently exist. Then we add specified output files to the `Current` folder. Then the files from the `Current` folder are zipped and the zipped file is named after the hash commit used to generate the output. 
@@ -36,6 +40,7 @@ Data/
             summary_data.csv
         Archive/
             master_90r68d.zip
+    Raw/
 Deliverables/
     Current/
         fig1.png
@@ -44,63 +49,42 @@ Deliverables/
         master_90r68d.zip
 ```
 
-main.R
+R/sample_code.R
 ```{r, eval = FALSE, echo = TRUE}
-library(utilsR)
 library(dataArchiveR)
 
-config <- utilsR::read_yaml("./config.yaml")
-
-fl <- "."
-add_branch <- TRUE
-add_message <- FALSE
+data_output_dir <- "./Data/Processed"
+data_fls <- file.path(output_dir, c("data.csv"))
 
 
-main <- function() {
-  #' Initiates the main function
+
+dm <- function(fls) {
+  #' Data Management
+  #' @param fls the files to archive
   
-  # Configure the repository
-  repo <- setUp(user.name, user.email)
-  
-  #Configure commit message
-  commit <- auto_commit(repo, user.name, user.password, fl, message, add_branch, add_message)
-  
+  df <- data.frame(col1 = c(1:4), col2 = c("a", "b", "c", "d"))
+  df["new_col"] <- ifelse(df["col1"] > 1, 1, 0)
+
+  write.csv(x = df, file = fls[1])
 }
 
-class main(object):
-
-    def __init__(self, opts):
-        """
-        Initiates the main function, which does data management and then calls 
-        to autocommit and archive the data
-        """
-
-        self.df = pd.DataFrame({"col1": [1,2,3,4],
-                                "col2": ["a", "b", "c", "d"]})
-
-        self.output_dir = "./dataArchivePy/tests/test_archive"
-        self.archive_fls = ["./dataArchivePy/tests/test_archive/data.csv"]
-
-        self.dm()
-
-        ac = auto_commit(opts)
-        archive_files(ac.commit, self.output_dir, self.archive_fls).archive()
-
-    def dm(self):
-        """
-        Performs data management steps
-        """
-
-        self.df_copy = self.df.copy()
-        self.df_copy["new_col"] = np.where(self.df_copy["col1"] > 1, 1, 0)
-        self.df_copy.to_csv(os.path.join(self.archive_fls[0]))
-
-if __name__ == "__main__":
-
-    opts = parseArguments()
-    main(opts)
+dm(fls)
+archive_etl(output_dir, fls)
 ```
 
-```CLI
-Rscript main.R 
-```
+### Commit and Archive Sample Code
+
+Sample Code is located `./R/sample_code.R`
+
+1. Navigate the repository's root directory, e.g. `cd dataArchiveR`
+2. To write out data to the Current folder type `Rscript R/sample_code.R`
+3. To write out data to the Current folder and Archive the data type `Rscript R/sample_code.R -c "commit message" -n "holmesjoli" -p "gitHubPassword" -e "holmesjoli@gmail.com"`
+
+* Commiting the code requires the arguments -n, -p, and -e to be added as well
+* Adding the `--commit` (`-c`) command triggers the script to add the data/output to the Archive folder
+* Adding the `--add_branch` (`-b`) command is an optional argument. Including this command will add the branch name to the beginning of the archive zip filename. 
+* Adding the `--add_message` (`-m`) command is an optional argument. Including this command will add the message to the end of the archive zip filename. 
+
+### Use Case
+
+This may seem like overkill when it comes to data and output archiving. A lot of teams, simply add a timestamp to their output. However, 
