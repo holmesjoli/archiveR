@@ -54,5 +54,5 @@ plots <- function(df, plot_fls) {
 df <- dm(data_fls)
 df_sum <- dm_sum(df, data_fls)
 plots(df, plot_fls)
-archive_etl(output_dir, data_fls)
-archive_etl(output_dir, plot_fls)
+archive_etl(file.path(output_dir, "Data"), data_fls)
+archive_etl(file.path(output_dir, "Deliverables"), plot_fls)
