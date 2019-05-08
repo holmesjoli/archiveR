@@ -33,10 +33,10 @@ The dataArchiveR automattically creates the `Current` and `Archive` folders. The
 
 Sample Code is located `./dataArchiveR/dataArchiveR/sample_code.R`
 
-1. Navigate the repository's root directory, e.g. `cd dataArchiveR`
-2. To write out data to the Current folder type `Rscript sample_code.R`
-3. To write out data to the Current folder and Archive the data type `Rscript sample_code.R -c "commit message" -e holmesjoli@gmail.com -n holmesjoli -p gitHubPassword`
+1.  Navigate the repository's root directory, e.g. `cd dataArchiveR`
+2.  To write out data to the Current folder type `Rscript sample_code.R`
+3.  To write out data to the Current folder and Archive the data type `Rscript sample_code.R -c "commit message" -e holmesjoli@gmail.com -n holmesjoli -p gitHubPassword`
 
-* Adding the `--commit` (`-c`) command triggers the script to add the data/output to the Archive folder
-* Adding the `--add_branch` (`-b`) command is an optional argument. Including this command will add the branch name to the beginning of the archive zip filename.
-* Adding the `--add_message` (`-m`) command is an optional argument. Including this command will add the message to the end of the archive zip filename.
+-   Adding the `--commit` (`-c`) command triggers the script to add the data/output to the Archive folder
+-   Adding the `--add_branch` (`-b`) command is an optional argument. Including this command will add the branch name to the beginning of the archive zip filename.
+-   Adding the `--add_message` (`-m`) command is an optional argument. Including this command will add the message to the end of the archive zip filename.
