@@ -9,20 +9,22 @@ First, we commit our code and extract the branch, unique 6-character hash, and m
 Next we run the archiving functions which create a directory structure that serves two functions a) easy access to the current data and b) an archive of data can be extracted using the unique 6-character hash.
 
 ## Example File Structure
-```
-Data/
-    Processed/
-        Current/
-            data.csv
-            summary_data.csv
-        Archive/
-            master_90r68d.zip
-Deliverables/
-    Current/
-        fig1.png
-        fig2.png
-    Archive/
-        master_90r68d.zip
+
+```txt
+Project/
+|___Data/
+|   |___Processed/
+|       |___Current/
+|              data.csv
+|              summary_data.csv
+|       |___Archive/
+|                master_90r68d.zip
+|___Deliverables/
+|   |___Current/
+|       fig1.png
+|       fig2.png
+|   |___Archive/
+|       master_90r68d.zip
 ```
 
 The dataArchiveR automattically creates the `Current` and `Archive` folders. Then it adds the specified files to the `Current` folder and zips the files from the `Current` folder using the current code commit and add the `Archive` folder. 
