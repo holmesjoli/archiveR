@@ -8,7 +8,7 @@ First, we commit our code and extract the branch, unique 6-character hash, and m
 
 Next we run the archiving functions which create a directory structure that serves two functions a) easy access to the current data and b) an archive of data can be extracted using the unique 6-character hash.
 
-### Example File Structure
+## Example File Structure
 
 ```
 Data/
@@ -29,14 +29,14 @@ Deliverables/
 The dataArchiveR automattically creates the `Current` and `Archive` folders. Then it adds the specified files to the `Current` folder and zips the files from the `Current` folder using the current code commit and add the `Archive` folder. 
 
 
-### Commit and Archive Sample Code
+## Commit and Archive Sample Code
 
 Sample Code is located `./dataArchiveR/dataArchiveR/sample_code.R`
 
-1. Navigate the repository's root directory, e.g. `cd dataArchiveR`
-2. To write out data to the Current folder type `Rscript sample_code.R`
-3. To write out data to the Current folder and Archive the data type `Rscript sample_code.R -c "commit message" -e holmesjoli@gmail.com -n holmesjoli -p gitHubPassword`
+ 1. Navigate the repository's root directory, e.g. `cd dataArchiveR`
+ 2. To write out data to the Current folder type `Rscript sample_code.R`
+ 3. To write out data to the Current folder and Archive the data type `Rscript sample_code.R -c "commit message" -e holmesjoli@gmail.com -n holmesjoli -p gitHubPassword`
 
-* Adding the `--commit` (`-c`) command triggers the script to add the data/output to the Archive folder
-* Adding the `--add_branch` (`-b`) command is an optional argument. Including this command will add the branch name to the beginning of the archive zip filename. 
-* Adding the `--add_message` (`-m`) command is an optional argument. Including this command will add the message to the end of the archive zip filename. 
+  * Adding the `--commit` (`-c`) command triggers the script to add the data/output to the Archive folder
+  * Adding the `--add_branch` (`-b`) command is an optional argument. Including this command will add the branch name to the beginning of the archive zip filename. 
+  * Adding the `--add_message` (`-m`) command is an optional argument. Including this command will add the message to the end of the archive zip filename. 
