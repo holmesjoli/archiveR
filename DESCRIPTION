@@ -15,7 +15,7 @@ Imports:
     zip (>= 2.0.1),
     dplyr (>= 0.8.0.1)
 Remotes:
-    utilsR (>= 0.0.1)
+    holmesjoli/utilsR
 RoxygenNote: 6.1.1
 Language: en-US
 Suggests: 
