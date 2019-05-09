@@ -1,7 +1,7 @@
 
 .Rproj.user
 packrat/lib*/
-packrat/src/
+packrat/src
 inst/doc
 
 .Rhistory

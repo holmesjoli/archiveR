@@ -1,6 +1,15 @@
 language: r
-rvm:
-  - 3.5.2
-r:
-  - devel
-  
+cache: packages
+
+jobs:
+  include:
+    after_success:
+      - Rscript -e 'library(covr); codecov()'
+  - r: 3.2
+    warnings_are_errors: false
+  - r: 3.3
+    warnings_are_errors: false
+  - r: 3.4
+    warnings_are_errors: false
+  - r: 3.5
+    warnings_are_errors: false
