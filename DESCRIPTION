@@ -13,10 +13,11 @@ Language: en-US
 VignetteBuilder: knitr
 Imports:
     assertthat(>= 0.2.1),
+    dplyr (>= 0.8.0.1),
     git2r (>= 0.25.2),
     optparse (>= 1.6.2),
-    zip (>= 2.0.1),
-    dplyr (>= 0.8.0.1)
+    withr,
+    zip (>= 2.0.1)
 Remotes:
     holmesjoli/utilsR
 Suggests: 

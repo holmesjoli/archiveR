@@ -1,6 +1,6 @@
-library(utilsR)
-library(archiveR)
-library(dplyr)
+#library(archiveR)
+#library(utilsR)
+#library(dplyr)
 
 output_dir <- "./tests/testthat"
 
@@ -10,10 +10,9 @@ plot_fls <- file.path(output_dir, "Deliverables", c("hist_df.png", "hist_df.jpg"
 
 ## Functions
 
+#' Data Management
+#' @param data_fls the files to archive
 dm <- function(data_fls) {
-    #' Data Management
-    #' @param data_fls the files to archive
-
 
     df <- data.frame(col1 = c(1:4), col2 = c("a", "b", "c", "d"))
     df$new_col <- ifelse(df$col1 > 1, 1, 0)
@@ -23,10 +22,10 @@ dm <- function(data_fls) {
     return(df)
 }
 
+#' Summarize df
+#' @param df the dataframe
+#' @param data_fls the names of the data files to write out
 dm_sum <- function(df, data_fls) {
-    #' Summarize df
-    #' @param df the dataframe
-    #' @param data_fls the names of the data files to write out
 
     df_sum <- df %>% dplyr::group_by(new_col) %>% dplyr::summarize(n = dplyr::n())
 
@@ -35,10 +34,10 @@ dm_sum <- function(df, data_fls) {
     return(df_sum)
 }
 
+#' Plot Sample Data
+#' @param df the dataframe
+#' @param data_fls the names of the data files to write out
 plots <- function(df, plot_fls) {
-    #' Plot Sample Data
-    #' @param df the dataframe
-    #' @param data_fls the names of the data files to write out
 
     png(filename = plot_fls[1])
     hist(df$new_col)
@@ -68,4 +67,4 @@ archive_etl(file.path(output_dir, "Deliverables"), plot_fls)
 commit <- "bd429f"
 fl <- data_fls[1]
 
-df <- archiveR::extract_csv(output_dir, commit, fl)
+# df <- extract_csv(output_dir, commit, fl)
