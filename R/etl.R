@@ -1,6 +1,8 @@
+
+#' @title Error handling username
+#' @description Error handling username from cli
+#' @param opts the cli options
 un <- function(opts) {
-    #' Error handling username from cli
-    #' @param opts the cli options
     
     if (is.null(opts[["user_name"]])) {
         stop("Missing Github username")
@@ -9,9 +11,10 @@ un <- function(opts) {
     }
 }
 
+#' @title Error handling email
+#' @description Error handling email from cli
+#' @param opts the cli options
 ue <- function(opts) {
-    #' Error handling email from cli
-    #' @param opts the cli options
     
     if (is.null(opts[["user_email"]])) {
         stop("Missing email")
@@ -21,9 +24,10 @@ ue <- function(opts) {
     }
 }
 
+#' @title Error handling password
+#' @description Error handling password from cli
+#' @param opts the cli options
 up <- function(opts) {
-    #' Error handling password from cli
-    #' @param opts the cli options
     
     if (is.null(opts[["user_password"]])) {
         stop("Missing Github password")
@@ -42,11 +46,12 @@ eval <- function(add) {
     
 }
 
+#' @title Archive ETL
+#' @description Initiates the ETL for archiving
+#' @param output_dir the output directory
+#' @param fls: the files to move to Current folder
+#' @export
 archive_etl <- function(output_dir, fls) {
-    #' Initiates the ETL for archiving
-    #' @param output_dir the output directory
-    #' @param fls: the files to move to Current folder
-    
     
     opts <- parseArguments()
     
@@ -63,7 +68,6 @@ archive_etl <- function(output_dir, fls) {
         repo <- setUp(user.name, user.email)
         commit <- auto_commit(repo, user.name, user.password, fl = ".", message, add_branch, add_message)
         archive_output(commit, output_dir, fls)
-        
         
     } else {
         

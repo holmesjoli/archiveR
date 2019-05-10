@@ -1,14 +1,13 @@
 ## Git tools
 
+#' @title Configure repository
+#' @description Initiates and configures the repository
+#' @param user.name server (github, bitbucket, etc.) username
+#' @param user.email the users email
+#' @return the repository
+#' @examples 
+#' repo <- config.repo('Joli Holmes', 'holmesjoligmail.com')
 setUp <- function(user.name, user.email) {
-    #' Configure repository
-    #' 
-    #' Initiates and configures the repository
-    #' @param user.name server (github, bitbucket, etc.) username
-    #' @param user.email the users email
-    #' @return the repository
-    #' @examples 
-    #' repo <- config.repo('Joli Holmes', 'holmesjoligmail.com')
     
     repo <- git2r::repository(".")
     git2r::config(repo, global = F, user.name, user.email)
@@ -17,14 +16,14 @@ setUp <- function(user.name, user.email) {
     
 }
 
+#' @title Checks master branch active
+#' @description Checks to see if the HEAD is on the master branch
+#' @param repo the repository to check
+#' @return the name of the active branch
+#' @examples 
+#' repo <- config.repo('Joli Holmes', 'holmesjoligmail.com')
+#' check_master(repo)
 check_master <- function(repo) {
-    #' Checks if the master branch is active
-    #' Checks to see if the HEAD is on the master branch
-    #' @param repo the repository to check
-    #' @return the name of the active branch
-    #' @examples 
-    #' repo <- config.repo('Joli Holmes', 'holmesjoligmail.com')
-    #' check_master(repo)
     
     active_branch <- git2r::repository_head(repo)$name
     
@@ -47,21 +46,21 @@ check_master <- function(repo) {
     
 }
 
+#' @title Automattically commits
+#' @description Automattically commits code
+#' @param repo the repository
+#' @param user.name username
+#' @param user.password user password
+#' @param fl the file to commit
+#' @param message the commit message
+#' @param add_branch takes the values TRUE or FALSE; if TRUE adds branch to the beginning of the the commit tag
+#' @param add_message takes the values TRUE or FALSE; if TRUE adds message to the end of the commit tag
+#' @return filename to be used to version output files and datasets
+#' @examples 
+#' repo <- config.repo('Joli Holmes', 'holmesjoligmail.com')
+#' auto_commit(repo, 'holmesjoli', 'password', '.', 'July 2018 Monthly')
+#' @export
 auto_commit <- function(repo, user.name, user.password, fl, message, add_branch, add_message) {
-    #' Automattically commits
-    #' 
-    #' Automattically commits code
-    #' @param repo the repository
-    #' @param user.name username
-    #' @param user.password user password
-    #' @param fl the file to commit
-    #' @param message the commit message
-    #' @param add_branch takes the values TRUE or FALSE; if TRUE adds branch to the beginning of the the commit tag
-    #' @param add_message takes the values TRUE or FALSE; if TRUE adds message to the end of the commit tag
-    #' @return filename to be used to version output files and datasets
-    #' @examples 
-    #' repo <- config.repo('Joli Holmes', 'holmesjoligmail.com')
-    #' auto_commit(repo, 'holmesjoli', 'password', '.', 'July 2018 Monthly')
     
     branch <- check_master(repo)
     
@@ -77,7 +76,6 @@ auto_commit <- function(repo, user.name, user.password, fl, message, add_branch,
     if (add_branch) {
         commit <- paste(branch, commit, sep = "_")
     }
-    
     
     return(commit)
 }

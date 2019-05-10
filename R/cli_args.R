@@ -1,7 +1,14 @@
 # Command line Interface Arguments
 
+#' @title Parse arguments
+#' @description Parses different options from the command line
+#' @examples 
+#' \dontrun{
+#' R/sample_code.R -c "commit message" -e holmesjoli@gmail.com -n holmesjoli -p gitHubPassword`
+#' parseArguments()
+#' }
+#' @export
 parseArguments <- function() {
-    #' Parses different options from the command line
     
     b <- optparse::make_option(c("-b", "--add_branch"), action = "store_true", help = "Add the branch to the commit tag")
     m <- optparse::make_option(c("-m", "--add_message"), action = "store_true", help = "Add the message to the commit tag")
