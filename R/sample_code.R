@@ -1,5 +1,5 @@
 library(utilsR)
-library(dataArchiveR)
+library(archiveR)
 library(dplyr)
 
 output_dir <- "./tests/testthat"
@@ -68,4 +68,4 @@ archive_etl(file.path(output_dir, "Deliverables"), plot_fls)
 commit <- "bd429f"
 fl <- data_fls[1]
 
-df <- dataArchiveR::extract_csv(output_dir, commit, fl)
+df <- archiveR::extract_csv(output_dir, commit, fl)

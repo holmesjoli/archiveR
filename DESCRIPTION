@@ -1,4 +1,4 @@
-Package: dataArchiveR
+Package: archiveR
 Type: Package
 Title: Archiving Tools for R
 Version: 0.0.1

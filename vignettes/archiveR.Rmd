@@ -1,8 +1,8 @@
 ---
-title: "dataArchiveR"
+title: "archiveR"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{dataArchiveR}
+  %\VignetteIndexEntry{archiveR}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -15,14 +15,14 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-library(dataArchiveR)
+library(archiveR)
 ```
 
 # Introduction
 
 One issue that I've often faced in analytics is how to connect output (data, visualizations, and reports) with the code used to generate that output. The team will deliver output to the client/partner and then continue to develop the code base. If the client/partner has a specific question then the team has to back-track to figure out which code was used to create that particular output. A lot of teams archive their output use timestamps, e.g. data_20171019_124590. While this can be a good method for data archiving for some teams, this method doesn't easily allow an analyst to be able to backtrack and see which code created that specific output. This can also create issues if data is created and then used as an input farther downstream because it means that the filename is changing whenever the data are re-processed.
 
-The dataArchiveR package is intended to help teams archive their data and output and connect it to the code that was used to create the output. The code is connected through the output using the hash from the commit. The package builds on functionalities from the [git2r](https://cran.r-project.org/web/packages/git2r/git2r.pdf) package. 
+The archiveR package is intended to help teams archive their data and output and connect it to the code that was used to create the output. The code is connected through the output using the hash from the commit. The package builds on functionalities from the [git2r](https://cran.r-project.org/web/packages/git2r/git2r.pdf) package. 
 
 First, we create a file structure with `Current` and `Archive` folders, if those folders don't currently exist. Then we add specified output files to the `Current` folder. Then the files from the `Current` folder are zipped and the zipped file is named after the hash commit used to generate the output. 
 
@@ -76,7 +76,7 @@ Sample Code is located `./R/sample_code.R`
 
 ```{r, eval = FALSE, echo = TRUE}
 library(utilsR)
-library(dataArchiveR)
+library(archiveR)
 library(dplyr)
 
 output_dir <- "./tests/testthat"
@@ -144,9 +144,9 @@ archive_etl(file.path(output_dir, "Deliverables"), plot_fls)
 
 ### Workflow
 
-Develop codebase normally. Add and commit code to bitbucket/TFS and utilize pull requests. When it comes time to deliver content to a client/partner then use the dataArchiveR library. At this point the code should be code reviewed and tested and be ready to merge into master.
+Develop codebase normally. Add and commit code to bitbucket/TFS and utilize pull requests. When it comes time to deliver content to a client/partner then use the archiveR library. At this point the code should be code reviewed and tested and be ready to merge into master.
 
-1. Navigate the repository's root directory, e.g. `cd dataArchiveR`
+1. Navigate the repository's root directory, e.g. `cd archiveR`
 2. To write out data to the Current folder type `Rscript R/sample_code.R`
 3. To write out data to the Current folder and Archive the data type `Rscript R/sample_code.R -c "commit message" -n "holmesjoli" -p "gitHubPassword" -e "holmesjoli@gmail.com"`
 
@@ -157,7 +157,7 @@ Develop codebase normally. Add and commit code to bitbucket/TFS and utilize pull
 
 ### Extract Data
 
-To extract data from an archive use the following sample code. Right now the dataArchiveR supports extract of two file types: tab-delimited files and comma-delimited files. The extract a comma delimited file use the `extract_csv` function. To extract a tab-delimited file use the `extract_tsv` function. 
+To extract data from an archive use the following sample code. Right now the archiveR supports extract of two file types: tab-delimited files and comma-delimited files. The extract a comma delimited file use the `extract_csv` function. To extract a tab-delimited file use the `extract_tsv` function. 
 
 ```{r, eval = FALSE, echo = TRUE}
 
@@ -165,6 +165,6 @@ output_dir <- "./tests/testthat/Data"
 commit <- "bd429f"
 fl <- "data.csv"
 
-df <- dataArchiveR::extract_csv(output_dir, commit, fl)
+df <- archiveR::extract_csv(output_dir, commit, fl)
 ```
 
