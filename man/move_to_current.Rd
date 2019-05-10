@@ -2,7 +2,7 @@
 % Please edit documentation in R/archive.R
 \name{move_to_current}
 \alias{move_to_current}
-\title{Moves the files to the Current folder}
+\title{Move to current directory}
 \usage{
 move_to_current(fls, current_dir)
 }

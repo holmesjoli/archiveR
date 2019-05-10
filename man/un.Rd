@@ -2,7 +2,7 @@
 % Please edit documentation in R/etl.R
 \name{un}
 \alias{un}
-\title{Error handling username from cli}
+\title{Error handling username}
 \usage{
 un(opts)
 }

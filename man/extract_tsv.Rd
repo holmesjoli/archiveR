@@ -2,7 +2,7 @@
 % Please edit documentation in R/extract_archive.R
 \name{extract_tsv}
 \alias{extract_tsv}
-\title{Extracts a tsv (tab delimited) file from the archive}
+\title{Extract tsv}
 \usage{
 extract_tsv(output_dir, commit, fl)
 }

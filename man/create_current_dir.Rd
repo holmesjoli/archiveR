@@ -2,7 +2,7 @@
 % Please edit documentation in R/archive.R
 \name{create_current_dir}
 \alias{create_current_dir}
-\title{Creates the file path to the Current directory}
+\title{Create current directory}
 \usage{
 create_current_dir(output_dir)
 }

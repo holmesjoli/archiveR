@@ -2,7 +2,7 @@
 % Please edit documentation in R/etl.R
 \name{archive_etl}
 \alias{archive_etl}
-\title{Initiates the ETL for archiving}
+\title{Archive ETL}
 \usage{
 archive_etl(output_dir, fls)
 }

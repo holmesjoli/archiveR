@@ -2,7 +2,7 @@
 % Please edit documentation in R/extract_archive.R
 \name{extract_csv}
 \alias{extract_csv}
-\title{Extracts a csv (comma delimited) file from the archive}
+\title{Extract csv}
 \usage{
 extract_csv(output_dir, commit, fl)
 }

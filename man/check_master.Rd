@@ -2,8 +2,7 @@
 % Please edit documentation in R/gitTools.R
 \name{check_master}
 \alias{check_master}
-\title{Checks if the master branch is active
-Checks to see if the HEAD is on the master branch}
+\title{Checks master branch active}
 \usage{
 check_master(repo)
 }
@@ -14,7 +13,6 @@ check_master(repo)
 the name of the active branch
 }
 \description{
-Checks if the master branch is active
 Checks to see if the HEAD is on the master branch
 }
 \examples{

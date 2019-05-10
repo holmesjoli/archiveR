@@ -2,7 +2,7 @@
 % Please edit documentation in R/etl.R
 \name{ue}
 \alias{ue}
-\title{Error handling email from cli}
+\title{Error handling email}
 \usage{
 ue(opts)
 }

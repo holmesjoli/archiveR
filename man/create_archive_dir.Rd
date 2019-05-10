@@ -2,7 +2,7 @@
 % Please edit documentation in R/archive.R
 \name{create_archive_dir}
 \alias{create_archive_dir}
-\title{Creates the file path to the Archive directory}
+\title{Create archive directory}
 \usage{
 create_archive_dir(output_dir)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/etl.R
 \name{up}
 \alias{up}
-\title{Error handling password from cli}
+\title{Error handling password}
 \usage{
 up(opts)
 }

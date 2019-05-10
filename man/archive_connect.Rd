@@ -2,7 +2,7 @@
 % Please edit documentation in R/extract_archive.R
 \name{archive_connect}
 \alias{archive_connect}
-\title{Extracts a csv (comma delimited) file from the archive}
+\title{Archive Connect}
 \usage{
 archive_connect(output_dir, commit, fl)
 }

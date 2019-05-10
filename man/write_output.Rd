@@ -2,7 +2,7 @@
 % Please edit documentation in R/archive.R
 \name{write_output}
 \alias{write_output}
-\title{Writes archive fls out to the Current folder}
+\title{Write output}
 \usage{
 write_output(output_dir, fls)
 }

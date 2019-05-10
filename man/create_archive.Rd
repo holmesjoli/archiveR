@@ -2,7 +2,7 @@
 % Please edit documentation in R/archive.R
 \name{create_archive}
 \alias{create_archive}
-\title{Copies files from the Current folder, adds them to the archive, and zips files using the commit id as the filename}
+\title{Create archive}
 \usage{
 create_archive(commit, current_dir, archive_dir)
 }

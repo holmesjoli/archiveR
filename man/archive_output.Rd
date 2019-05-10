@@ -2,7 +2,7 @@
 % Please edit documentation in R/archive.R
 \name{archive_output}
 \alias{archive_output}
-\title{Writes archive fls out to the Current folder and archives the same files with a commit id}
+\title{Archive output}
 \usage{
 archive_output(commit, output_dir, fls)
 }

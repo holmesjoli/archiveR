@@ -2,7 +2,7 @@
 % Please edit documentation in R/archive.R
 \name{create_archive_str}
 \alias{create_archive_str}
-\title{Creates the archive structure}
+\title{Create archive structure}
 \usage{
 create_archive_str(output_dir)
 }
